@@ -1,0 +1,44 @@
+div(ng-show='loaded')
+	section.material-half-bg
+		.cover.araquari-fachada
+	section.login-content
+		.logo
+			h1 SIG Refeitório
+		.login-box(ng-class="{'flipped': flip}")
+			form.login-form
+				h3.login-head
+					i.fa.fa-lg.fa-fw.fa-user
+					| Login
+				.form-group
+					label.control-label Email
+					input.form-control(ng-model='email', type='text', placeholder='Email', autofocus='')
+				.form-group
+					label.control-label Senha
+					input.form-control(ng-model='password', type='password', placeholder='Senha')
+				.form-group.btn-container
+					button.btn.btn-primary.btn-block(ng-click="login()")
+						i.fas.fa-sign-in-alt.mr-1
+						| Login
+				.form-group.my-2
+					.utility
+						p.semibold-text
+							a(href='javascript:void(0)', ng-click='register()') Registrar
+					.utility
+						p.semibold-text
+							a(href='javascript:void(0)', ng-click="flip = !flip") Esqueceu a senha?
+			form.forget-form
+				h3.login-head
+					i.fa.fa-lg.fa-fw.fa-lock
+					| Esqueceu a senha?
+				.form-group
+					label.control-label Email
+					input.form-control(type='text', placeholder='Email')
+				.form-group.btn-container
+					button.btn.btn-primary.btn-block
+						i.fa.fa-unlock.fa-lg.fa-fw
+						| RECUPERAR
+				.form-group.mt-3
+					p.semibold-text.mb-0
+						a(href='javascript:void(0)', ng-click="flip = !flip")
+							i.fa.fa-angle-left.fa-fw
+							|  Voltar

@@ -1,0 +1,12 @@
+//- .loading-bro(ng-hide='loaded')
+//-   svg.center.float#load(style='margin-left:25%;margin-top:70%;', x='0px', y='0px', viewbox='0 0 150 150')
+//-     circle#loading-inner(cx='75', cy='75', r='60')
+section(ng-cloak='', ng-if='loaded')
+  header-bar
+  .mt-3
+    .container-fluid
+      .row
+        sidebar.ml-3
+        .col
+          .jumbotron.shadow.p-3.mb-5.rounded
+            ui-view

@@ -1,0 +1,44 @@
+{
+  "name": "refeitorio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marlon",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-jwt": "^0.1.9",
+    "angular-paging": "^2.2.2",
+    "angular-resource": "^1.6.9",
+    "angular-tooltips": "^1.2.2",
+    "angular-touch": "^1.6.9",
+    "angular-ui-bootstrap": "^2.5.6",
+    "angularjs-toaster": "^2.2.0",
+    "ng-dialog": "^1.4.0",
+    "ng-table": "^3.0.1",
+    "sweetalert2": "^7.13.1",
+    "v-accordion": "^1.6.0"
+  },
+  "devDependencies": {
+    "add-stream": "^1.0.0",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.2.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-vendor": "0.0.4",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^5.0.0"
+  }
+}

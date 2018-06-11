@@ -1,0 +1,25 @@
+.border-center { 
+    width: 100%;
+    position: relative;
+}
+
+.border-center:before { 
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    border-bottom: 2px #6c757d solid;
+    width: 100%;
+    z-index:0;
+}
+
+.scroll-area{
+    height:300px;
+    overflow-y: scroll;
+    border:1px solid rgba(0, 0, 0, 0.125);;
+}
+
+
+.form-group.required .control-label:after {
+    content:"*";
+    color:red;
+}

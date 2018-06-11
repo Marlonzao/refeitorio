@@ -1,0 +1,75 @@
+.row
+    .col-12
+        .loading-bro(ng-hide='loaded')
+            svg#load(x='0px', y='0px', viewbox='0 0 150 150')
+                circle#loading-inner(cx='75', cy='75', r='60')
+div(ng-cloak='', ng-show='loaded')
+    section
+        h1.display Editando aluno - {{person.name}}
+        hr
+        form
+            .row.mb-3
+                .col-1
+                .col-10 
+                    .form-group
+                        label Nome
+                        input.form-control(ng-model='person.name', type='text', placeholder='Ex.: Marlon de Oliveira dos Santos')
+                    .form-group
+                        label Matrícula
+                        input.form-control(ng-model='person.student.registry', type='text', placeholder='3423523412253', disabled)
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model='person.student.isBoarder', ng-checked="person.student.isBoarder", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Interno?
+            .row
+                .col-1
+                .col-6
+                    h4 Dias em que o aluno almoça
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model="person['lunch_pattern']['sunday']", ng-checked="person['lunch_pattern']['sunday']", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Domingo
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model="person['lunch_pattern']['monday']", ng-checked="person['lunch_pattern']['monday']", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Segunda
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model="person['lunch_pattern']['tuesday']", ng-checked="person['lunch_pattern']['tuesday']", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Terça
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model="person['lunch_pattern']['wednesday']", ng-checked="person['lunch_pattern']['wednesday']", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Quarta
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model="person['lunch_pattern']['thursday']", ng-checked="person['lunch_pattern']['thursday']", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Quinta
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model="person['lunch_pattern']['friday']", ng-checked="person['lunch_pattern']['friday']", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Sexta
+                    .form-check
+                        input.form-check-input(type='checkbox', ng-model="person['lunch_pattern']['saturday']", ng-checked="person['lunch_pattern']['saturday']", ng-true-value="1", ng-false-value="0")
+                        label.form-check-label Sabado
+            //- .row.mt-2
+            //-     .col-1
+            //-     .col-6
+            //-         h4 Dias em que o aluno janta
+            //-         .form-check
+            //-             input.form-check-input(type='checkbox', ng-model="person['dinner_pattern']['sunday']", ng-checked="person['dinner_pattern']['sunday']", ng-true-value="1", ng-false-value="0")
+            //-             label.form-check-label Domingo
+            //-         .form-check
+            //-             input.form-check-input(type='checkbox', ng-model="person['dinner_pattern']['monday']", ng-checked="person['dinner_pattern']['monday']", ng-true-value="1", ng-false-value="0")
+            //-             label.form-check-label Segunda
+            //-         .form-check
+            //-             input.form-check-input(type='checkbox', ng-model="person['dinner_pattern']['tuesday']", ng-checked="person['dinner_pattern']['tuesday']", ng-true-value="1", ng-false-value="0")
+            //-             label.form-check-label Terça
+            //-         .form-check
+            //-             input.form-check-input(type='checkbox', ng-model="person['dinner_pattern']['wednesday']", ng-checked="person['dinner_pattern']['wednesday']", ng-true-value="1", ng-false-value="0")
+            //-             label.form-check-label Quarta
+            //-         .form-check
+            //-             input.form-check-input(type='checkbox', ng-model="person['dinner_pattern']['thursday']", ng-checked="person['dinner_pattern']['thursday']", ng-true-value="1", ng-false-value="0")
+            //-             label.form-check-label Quinta
+            //-         .form-check
+            //-             input.form-check-input(type='checkbox', ng-model="person['dinner_pattern']['friday']", ng-checked="person['dinner_pattern']['friday']", ng-true-value="1", ng-false-value="0")
+            //-             label.form-check-label Sexta
+            //-         .form-check
+            //-             input.form-check-input(type='checkbox', ng-model="person['dinner_pattern']['saturday']", ng-checked="person['dinner_pattern']['saturday']", ng-true-value="1", ng-false-value="0")
+            //-             label.form-check-label Sabado
+            .ngdialog-buttons.mt-5
+                button.ngdialog-button.ngdialog-button-primary(type='button', ng-click='send(person)') Enviar    
+                button.ngdialog-button.ngdialog-button-secondary(type='button', ng-click='closeThisDialog(0)') Cancelar

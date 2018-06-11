@@ -1,0 +1,23 @@
+.card
+    //- img.card-img-top(ng-src='./img/icone.png', alt='Card image cap')
+    .card-body.text-center
+        h5.card-title {{person.name}}
+        | {{person.student.classroom.name | uppercase}}
+    section(ng-if="$root.userData.role == 'user' || $root.userData.role == 'admin'")
+        hr.m-0
+        .card-body
+            .text-center(ng-if='loaded')
+                <a href='javascript:void(0)' class="btn btn-lg" ng-class="{'btn-primary': allowed, 'btn-secondary': !allowed}" ng-click="register()" ng-disabled='!allowed'>Autorizar</a>
+                .mt-2(ng-if='noRights || conflict || outTime')
+                    .alert.alert-danger(ng-if='noRights') Aluno sem direito
+                    .alert.alert-success(ng-if='conflict') Já incluso.
+                    .alert.alert-secondary(ng-if='outTime') Fora do horário de funcionamento
+                //- .col-6.text-center
+                    <a href='javascript:void(0)' class="btn btn-lg" ng-class="{'btn-success': !processed, 'btn-secondary': processed}" ng-click="money()" ng-disabled='processed'>Dinheiro</a>
+    section(ng-if="$root.userData.role == 'staff' || $root.userData.role == 'admin'")
+        hr.m-1
+        .card-body
+            //- a.card-link(href='javascript:void(0)', ng-click="addObservation(student.id)") Observação
+            a.card-link(href='javascript:void(0)', ng-click="editPerson(person.id)") Editar
+            a.card-link(href='javascript:void(0)', ng-click="deletePerson(person.id)") Deletar
+            //- a.card-link(href='javascript:void(0)', ng-click="deleteStudent(student.id)") Deletar

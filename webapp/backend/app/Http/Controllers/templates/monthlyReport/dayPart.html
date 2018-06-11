@@ -1,0 +1,45 @@
+<style>
+    .flat-table {
+        font-family: sans-serif;
+        font-size: 10px;
+        width: auto;
+        margin-left:auto; 
+        margin-right:auto;
+    }
+    .flat-table th {
+        background-color: rgb(112, 196, 105);
+        color: white;
+        font-weight: normal;
+        padding: 2px 15px;
+        text-align: center;
+    }
+    .flat-table td {
+        background-color: rgb(238, 238, 238);
+        color: rgb(111, 111, 111);
+        padding: 2px 15px;
+    }
+</style> 
+<div style='text-align: center; float: center;'>
+    <hr>
+    <h4 style="font-family: sans-serif;">Dia: {DAY}</h4>
+    <table align="center" class='flat-table'>
+        <thead>
+            <tr>
+                <th>Momento</th>
+                <th>{ENVIROMENT_REGISTRY_TYPE}</th>
+                <th>Nome</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- BEGIN BLOCK_CHILD_REPORT -->
+            <tr>
+                <td>{MOMENT}</td>
+                <td>{REGISTRY}</td>
+                <td>{PERSON_NAME}</td>
+                <td>R${PAYMENT_VALUE}</td>
+            </tr>
+            <!-- END BLOCK_CHILD_REPORT -->
+        </tbody>
+    </table>                    
+</div>

@@ -1,0 +1,126 @@
+.item {
+    border-radius: 3px;
+    padding: 12px;
+    margin: 0 auto;
+    max-width: 472px;
+    min-height: 100px;
+    margin-top: 10px;
+}
+
+.animated-bg {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: wave;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #323d42 8%, #4d565a 18%, #323d42 33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+@keyframes wave {
+0% {
+    background-position: -468px 0
+}
+100% {
+    background-position: 468px 0
+}
+}
+
+.mask {
+    background: #222d32;
+    position: absolute;
+}
+
+.mask.header-top,
+.mask.header-bottom,
+.mask.subheader-bottom {
+    top: 0;
+    left: 40px;
+    right: 0;
+    height: 10px;
+}
+
+.mask.header-left,
+.mask.subheader-left,
+.mask.header-right,
+.mask.subheader-right {
+    top: 10px;
+    left: 40px;
+    height: 8px;
+    width: 10px;
+}
+
+.mask.header-bottom {
+    top: 18px;
+    height: 6px;
+}
+
+.mask.subheader-left,
+.mask.subheader-right {
+    top: 24px;
+    height: 6px;
+}
+
+
+.mask.header-right,
+.mask.subheader-right {
+    width: auto;
+    left: 300px;
+    right: 0;
+}
+
+.mask.subheader-right {
+    left: 230px;
+}
+
+.mask.subheader-bottom {
+    top: 30px;
+    height: 10px;
+}
+
+.mask.content-top,
+.mask.content-second-line,
+.mask.content-third-line,
+.mask.content-second-end,
+.mask.content-third-end,
+.mask.content-first-end {
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 6px;
+}
+
+.mask.content-top {
+    height:20px;
+}
+
+.mask.content-first-end,
+.mask.content-second-end,
+.mask.content-third-end{
+    width: auto;
+    left: 380px;
+    right: 0;
+    top: 60px;
+    height: 8px;
+}
+
+.mask.content-second-line  {
+    top: 68px;
+}
+
+.mask.content-second-end {
+    left: 420px;
+    top: 74px;
+}
+
+.mask.content-third-line {
+    top: 82px;
+}
+
+.mask.content-third-end {
+    left: 300px;
+    top: 88px;
+}

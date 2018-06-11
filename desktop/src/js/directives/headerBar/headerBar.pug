@@ -1,0 +1,13 @@
+header
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='#') SIG Refeit&oacute;rio
+        a.navbar-brand(href='#') - {{selectedEnviroment.name}}
+        div(style='position: absolute; right: 25px;')
+            .btn-group.mr-2(uib-dropdown='', dropdown-append-to-body='')
+                button.btn.btn-outline-success(type='button', uib-dropdown-toggle='')
+                    | {{selectedEnviroment.name}}
+                    span.caret
+                div.dropdown-menu(uib-dropdown-menu='', role='menu', aria-labelledby='btn-append-to-body')
+                    a.dropdown-item(ng-repeat='enviroment in enviroments', href='javascript:void(0)') {{enviroment.name}}
+            button.btn.btn-danger(ng-click='logout()') Logout   
+            //- button.btn.btn-secondary(style="position: absolute; right: 25px;") Logout

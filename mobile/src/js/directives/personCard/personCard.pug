@@ -1,0 +1,12 @@
+.card
+    img.card-img-top(ng-src='./img/icone.png', alt='Card image cap')
+    .card-body
+        h5.card-title {{person.name}}
+    hr.m-0
+    .card-body
+        //- a.card-link(href='javascript:void(0)', ng-click="addObservation(student.id)") Observação
+        //- a.card-link(href='javascript:void(0)', ng-click="editPerson(person.id)") Editar
+        //- a.card-link(href='javascript:void(0)', ng-click="deletePerson(person.id)") Deletar
+        //- a.card-link(href='javascript:void(0)', ng-click="deleteStudent(student.id)") 
+        <a href='javascript:void(0)' class="btn btn-lg pull-left" ng-class="{'btn-primary': allowed, 'btn-secondary': !allowed}" ng-click="register()" ng-disabled='!allowed'>Autorizar</a>
+        <a href='javascript:void(0)' class="btn btn-lg pull-right" ng-class="{'btn-success': !processed, 'btn-secondary': processed}" ng-click="money()" ng-disabled='processed'>Dinheiro</a>

@@ -1,0 +1,84 @@
+li.dropdown(ng-class="{'show':enviromentsActive}")
+  a.app-nav__item(data-toggle='dropdown', aria-label='Open Profile Menu', ng-click="enviromentsActive=!enviromentsActive")
+    i.fa.fa-angle-down.fa-lg
+  ul.app-notification.dropdown-menu.dropdown-menu-right(ng-class="{'show':enviromentsActive}")
+    li.app-notification__title Ambientes
+    li.row(ng-repeat='enviroment in enviroments')
+      .col-1
+        span.fa-stack.fa-lg
+          i.fa.fa-circle.fa-stack-2x.text-primary
+          i.fa.fa-stack-1x.fa-inverse(ng-class="{'fa-university': (enviroment.type == 'school')}")
+      .col-3
+      .mt-2
+        | {{enviroment.name}}
+      .col-1
+      .col-1
+        i.mt-2.fas.fa-pencil-alt.fa-stack-1x(ng-click='alert()')
+      .col-1
+        i.mt-2.fas.fa-trash-alt.fa-stack-1x(ng-click='alert()')
+    li.app-notification__footer
+      a(href='javascript:void(0)')
+
+//- li.dropdown
+//-   a.app-nav__item(href='#', data-toggle='dropdown', aria-label='Show notifications')
+//-     i.fa.fa-bell.fa-lg
+//-   ul.app-notification.dropdown-menu.dropdown-menu-right
+//-     li.app-notification__title You have 4 new notifications.
+//-     .app-notification__content
+//-       li
+//-         a.app-notification__item(href='javascript:;')
+//-           span.app-notification__icon
+//-             span.fa-stack.fa-lg
+//-               i.fa.fa-circle.fa-stack-2x.text-primary
+//-               i.fa.fa-envelope.fa-stack-1x.fa-inverse
+//-           div
+//-             p.app-notification__message Lisa sent you a mail
+//-             p.app-notification__meta 2 min ago
+//-       li
+//-         a.app-notification__item(href='javascript:;')
+//-           span.app-notification__icon
+//-             span.fa-stack.fa-lg
+//-               i.fa.fa-circle.fa-stack-2x.text-danger
+//-               i.fa.fa-hdd-o.fa-stack-1x.fa-inverse
+//-           div
+//-             p.app-notification__message Mail server not working
+//-             p.app-notification__meta 5 min ago
+//-       li
+//-         a.app-notification__item(href='javascript:;')
+//-           span.app-notification__icon
+//-             span.fa-stack.fa-lg
+//-               i.fa.fa-circle.fa-stack-2x.text-success
+//-               i.fa.fa-money.fa-stack-1x.fa-inverse
+//-           div
+//-             p.app-notification__message Transaction complete
+//-             p.app-notification__meta 2 days ago
+//-       .app-notification__content
+//-         li
+//-           a.app-notification__item(href='javascript:;')
+//-             span.app-notification__icon
+//-               span.fa-stack.fa-lg
+//-                 i.fa.fa-circle.fa-stack-2x.text-primary
+//-                 i.fa.fa-envelope.fa-stack-1x.fa-inverse
+//-             div
+//-               p.app-notification__message Lisa sent you a mail
+//-               p.app-notification__meta 2 min ago
+//-         li
+//-           a.app-notification__item(href='javascript:;')
+//-             span.app-notification__icon
+//-               span.fa-stack.fa-lg
+//-                 i.fa.fa-circle.fa-stack-2x.text-danger
+//-                 i.fa.fa-hdd-o.fa-stack-1x.fa-inverse
+//-             div
+//-               p.app-notification__message Mail server not working
+//-               p.app-notification__meta 5 min ago
+//-         li
+//-           a.app-notification__item(href='javascript:;')
+//-             span.app-notification__icon
+//-               span.fa-stack.fa-lg
+//-                 i.fa.fa-circle.fa-stack-2x.text-success
+//-                 i.fa.fa-money.fa-stack-1x.fa-inverse
+//-             div
+//-               p.app-notification__message Transaction complete
+//-               p.app-notification__meta 2 days ago
+//-     li.app-notification__footer
+//-       a(href='#') See all notifications.

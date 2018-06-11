@@ -1,0 +1,19 @@
+h1.display.pull-left - Verificação via Nome
+hr.my-4
+br
+.row.mb-3
+    .col
+        h2.mb-3.line-head {{(selectedEnviroment.type == 'school') ? 'Alunos':'Funcionários'}}
+        .form-row.align-items-center
+            .col
+                input.form-control.mb-2(type='text', placeholder='Pesquisar...', ng-model='searchTerm', ng-enter='searchPerson(searchTerm)')
+            .col-auto(style='border-right: 1px solid #333;')
+                button.btn.btn-primary.mb-2(ng-click='searchPerson(searchTerm)') Pesquisar
+        p.text-muted Últimos 6 {{(selectedEnviroment.type == 'school') ? 'alunos':'funcionários'}} cadastrados no sistema
+.container
+    .row
+        .col.d-flex.align-items-stretch
+            .card-columns(ng-if='!resultPersons')
+                person-card(ng-repeat='person in persons', person='person')
+            .card-columns(ng-if='resultPersons.length > 0')
+                person-card(ng-repeat='person in resultPersons', person='person')

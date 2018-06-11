@@ -1,0 +1,93 @@
+style.
+    .box-scrollable {
+        height: 100%; 
+        max-height: 350px;
+        overflow-y: scroll;
+    }
+.app-title
+    div
+        h1
+            i.fa.fa-chart-line
+            |  Refeitório
+        p Essa tela contém dados sobre alunos utilizando o refeitório e opções de relatórios.
+//- .row
+//-     .tile.mb-4.col
+//-         .page-header
+//-             .row.mb-3
+//-                 .col
+//-                     h2.mb-3.line-head Tempo Real
+//-             .row
+//-                 .col-12.box-scrollable
+//-                     p(ng-repeat='history in historyRecords') Teste
+.row
+    .tile.mb-4.col
+        .page-header
+            .row.mb-3
+                .col
+                    h2.mb-3.line-head Relatórios Diários
+            .row
+                .col-12
+                    .loading-bro(ng-hide='loadedDaily')
+                        svg#load(x='0px', y='0px', viewbox='0 0 150 150')
+                            circle#loading-inner(cx='75', cy='75', r='60')
+                    .mb-3
+                        .table-responsive(ng-cloak='', ng-if='loadedDaily')
+                            table.table.table-striped.table-bordered.table-hover.tabel-condensed
+                                thead
+                                    tr
+                                        th Dia
+                                        th {{(selectedEnviroment.type == 'school') ? 'Alunos':'Funcionários'}}
+                                        //- th Dinheiro
+                                        th Total
+                                        th(style="width:  8.33%") Visualizar
+                                tbody
+                                    tr(ng-repeat='historic in historicsDaily')
+                                        td {{historic.date |  date:'dd/MM/yyyy'}}
+                                        td {{historic.byEnviroment}}
+                                        //- td {{historic.byPerson}}
+                                        td R${{historic.totalEarnings}}
+                                        td
+                                            button.btn.btn-info(ng-click='showReport(historic)')
+                                                | Visualizar
+                                                i.ml-2.fas.fa-external-link-alt
+                        .col(align='center', colspan='6', ng-show='loadedDaily')
+                            .pull-right
+                                paging(page="currentPageDaily", page-size="10", total="noOfPagesDaily", ul-class="pagination", paging-action="getPersonsDaily(page)")
+.row
+    .tile.mb-4.col
+        .page-header
+            .row.mb-3
+                .col
+                    h2.mb-3.line-head Relatórios Mensais
+            .row
+                .col-12
+                    .loading-bro(ng-hide='loadedMonthly')
+                        svg#load(x='0px', y='0px', viewbox='0 0 150 150')
+                            circle#loading-inner(cx='75', cy='75', r='60')
+                    .row.mb-3.col
+                        .table-responsive(ng-cloak='', ng-if='loadedMonthly')
+                            table.table.table-striped.table-bordered.table-hover.tabel-condensed
+                                thead
+                                    tr
+                                        th Mês
+                                        th {{(selectedEnviroment.type == 'school') ? 'Alunos':'Funcionários'}}
+                                        //- th Dinheiro
+                                        th Total
+                                        th(style="width:  8.33%") Download
+                                tbody
+                                    tr(ng-repeat='historic in historicsMonthly')
+                                        td {{historic.month |  date:'MM/yyyy'}}
+                                        td {{historic.totals.byEnviroment}}
+                                        //- td {{historic.totals.byPerson}}
+                                        td R${{historic.totals.totalEarnings}}
+                                        td
+                                            .btn-group
+                                                //- button.btn.btn-info(ng-click='downloadMonthReport(historic.month)') 
+                                                //-     | PDF
+                                                //-     i.ml-2.fa.fa-download                                                
+                                                button.btn.btn-info(ng-click="downloadMonthReport(historic.month, 'XLSX')") 
+                                                    | Excel
+                                                    i.ml-2.fa.fa-download                                                
+                        .col(align='center', colspan='6', ng-show='loadedMonthly')
+                            .pull-right
+                                paging(page="currentPageMonthly", page-size="10", total="noOfPagesMonthly", ul-class="pagination", paging-action="getHistoricsMonthly(page)")

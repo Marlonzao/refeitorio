@@ -1,0 +1,11 @@
+.card
+    //- img.card-img-top(ng-src='./img/icone.png', alt='Card image cap')
+    .card-body
+        h4 {{person.name}}
+    hr.m-0
+    .card-body
+        .row(ng-if='loaded')
+            .col-6.text-center
+                <a href='javascript:void(0)' class="btn btn-lg" ng-class="{'btn-primary': allowed, 'btn-secondary': (conflict || !allowed)}" ng-click="register()" ng-disabled='(conflict || !allowed)'>Autorizar</a>
+            .col-6.text-center
+                <a href='javascript:void(0)' class="btn btn-lg" ng-class="{'btn-success': !notProcessed, 'btn-secondary': (conclict || notProcessed)}" ng-click="money()" ng-disabled='(conclict || notProcessed)'>Dinheiro</a>

@@ -1,0 +1,20 @@
+
+h1 Registre-se
+hr
+form(autocomplete="off", name='registerForm')
+    .form-group
+        label Nome
+        input.form-control(type='text', placeholder='Nome', ng-model='register.name', required)
+    .form-group
+        label Email
+        input.form-control(type='email', placeholder='Email', ng-model='register.email', autocomplete="off", required)
+    .form-group
+        label Senha
+        input.form-control(type='password', placeholder='Senha', ng-model='register.password', autocomplete="off", required)
+    .form-group
+        label Confirmar Senha
+        input.form-control(type='password', placeholder='Confirmar Senha', ng-model='register.confirm_password', required)
+    .form-group
+        label Código de segurança
+        input.form-control(type='password', placeholder='Código', ng-model='register.security_code', required)
+    button.btn.btn-primary(ng-click='send()') Enviar

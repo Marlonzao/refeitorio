@@ -1,0 +1,34 @@
+//- TODO: Tornar o placeholder de texto maior
+aside.app-sidebar
+  section(ng-cloak="")
+    article(ng-hide='user.name && loaded')
+      .item
+        .animated-bg
+          .mask.header-top
+          .mask.header-left
+          .mask.header-right
+          .mask.header-bottom
+          .mask.subheader-left
+          .mask.subheader-right
+          .mask.subheader-bottom
+          .mask.content-top
+          .mask.content-first-end
+          .mask.content-second-line
+          .mask.content-second-end
+          .mask.content-third-line
+          .mask.content-third-end 
+    article(ng-show='user.name && loaded')
+      .app-sidebar__user
+        img.app-sidebar__user-avatar(ng-src='{{user.photo}}', alt='User Image', heigth="50", width="50")
+        div
+          p.app-sidebar__user-name {{user.firstName}}
+          p.app-sidebar__user-designation {{user.bio}}
+      ul.app-menu
+        li(ng-repeat="module in sideBar", ng-class="{'treeview': module.isTree, 'is-expanded': active}", ng-click="active=!active && user.availableModules[$index]")
+          a.app-menu__item(ui-sref-active="active", ui-sref='{{module.route}}', ng-if="!module.isTree", ng-class="{'text-muted disabled': !user.availableModules[$index]}", ng-disabled="!user.availableModules[$index]")
+            i.app-menu__icon.fa(class="{{module.icon}}")
+            span.app-menu__label.row
+              .col-sm-8
+                | {{module.name}}                
+              .col-sm-4.mt-1
+                .badge.badge-secondary.float-right(ng-if="!user.availableModules[$index]") Indisponível

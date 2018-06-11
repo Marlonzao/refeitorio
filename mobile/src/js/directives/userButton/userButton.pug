@@ -1,0 +1,16 @@
+li.dropdown(ng-class="{'show':userButtonActive}")
+    a.app-nav__item(data-toggle='dropdown', aria-label='Open Profile Menu', ng-click="userButtonActive=!userButtonActive")
+        i.fa.fa-user.fa-lg
+    ul.dropdown-menu.settings-menu.dropdown-menu-right(ng-class="{'show':userButtonActive}")
+        //- li
+        //-     a.dropdown-item(href='javascript:void(0)')
+        //-         i.fa.fa-cog.fa-lg
+        //-         |  Settings
+        //- li
+        //-     a.dropdown-item(href='javascript:void(0)')
+        //-         i.fa.fa-user.fa-lg
+        //-         |  Profile
+        li
+            a.dropdown-item(href='javascript:void(0)', ng-click='logout()')
+                i.fas.fa-sign-out-alt.fa-lg
+                |  Logout

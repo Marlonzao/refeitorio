@@ -1,0 +1,27 @@
+.app-title
+    div
+        h1
+            i.fa.fa-graduation-cap
+            |  {{(selectedEnviroment.type == 'school') ? 'Alunos':'Funcionários'}}
+        p Essa tela contém formulários para inserir ou editar {{(selectedEnviroment.type == 'school') ? 'alunos':'funcionários'}}.
+.row
+    .tile.mb-4.col
+        .page-header
+            .row.mb-3
+                .col
+                    h2.mb-3.line-head {{(selectedEnviroment.type == 'school') ? 'Alunos':'Funcionários'}}
+                    .form-row.align-items-center
+                        .col
+                            input.form-control.mb-2(type='text', placeholder='Pesquisar...', ng-model='searchTerm', ng-enter='searchPerson(searchTerm)')
+                        .col-auto(ng-class="{'border-right':($root.userData.role == 'staff' || $root.userData.role == 'admin') ? '1px solid #333;' : ''}")
+                            button.btn.btn-primary.mb-2(ng-click='searchPerson(searchTerm)') Pesquisar
+                        .col-auto
+                            .row.mt-1
+                                .col(ng-if="$root.userData.role == 'staff' || $root.userData.role == 'admin'")
+                                    button.btn.btn-info.mb-2.mr-2(ng-click="uploadFile()", ng-disabled="!(myFile)") Importar {{(selectedEnviroment.type == 'school') ? 'alunos':'funcionários'}}
+                                    input(type='file', file-model='myFile')  
+                    p.text-muted Últimos 6 {{(selectedEnviroment.type == 'school') ? 'alunos':'funcionários'}} cadastrados no sistema
+            .card-columns(ng-if='!resultPersons')
+                person-card(ng-repeat='person in persons', person='person')
+            .card-columns(ng-if='resultPersons.length > 0')
+                person-card(ng-repeat='person in resultPersons', person='person')

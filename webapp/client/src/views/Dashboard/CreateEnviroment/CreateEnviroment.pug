@@ -1,0 +1,34 @@
+
+section
+    article
+        h1 Crie um ambiente
+        p Ambientes tem como utilidade de colocar pessoas em seus designados ambientes, como funcionários em empresas e alunos em escolas.
+        hr
+        form(autocomplete="off", name='enviromentForm')
+            .form-group.required
+                label.control-label Nome do Ambiente
+                input.form-control(type='text', placeholder='Nome', ng-model='enviroment.name', ng-required="true")
+            .form-group.required
+                label.control-label Tipo do Ambiente
+                select.form-control(ng-model='enviroment.type', ng-required="true")
+                    option(value='school') Escola
+                    option(value='company') Empresa
+    article
+        h1 Crie valores
+        p Valores servem para definir a quantidade que deve ser cobrada quando um aluno paga com dinheiro ou subsidiado pela escola.
+        hr
+        form(autocomplete="off", name='valuesForm')
+            .form-group.required
+                label.control-label Valor Subsidiado
+                .input-group
+                    .input-group-prepend
+                        span.input-group-text $
+                    input.form-control(type='number',step="0.01", placeholder='Valor Subsidiado', ng-model='enviroment.value.byEnviroment', ng-required="true")
+            .form-group.required
+                label.control-label Valor Pagar com dinheiro
+                .input-group
+                    .input-group-prepend
+                        span.input-group-text $
+                    input.form-control(type='number',step="0.01", placeholder='Valor Dinheiro', ng-model='enviroment.value.byPerson', ng-required="true")
+    //- | {{!(valuesForm.$valid && enviromentForm.$valid)}}
+    button.btn.btn-primary(ng-click='send()' ng-disabled="!(valuesForm.$valid && enviromentForm.$valid)" ) Enviar

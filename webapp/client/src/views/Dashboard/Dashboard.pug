@@ -1,0 +1,26 @@
+header.app-header
+  a.app-header__logo(href='index.html') SIG Refeitório
+  a.app-sidebar__toggle(ng-click='sidebarToggle()', aria-label='Hide Sidebar')
+  .ml-2.mt-2
+    h2.display.text-white - {{selectedEnviroment.name == null ? 'Não selecionado' : selectedEnviroment.name}}
+  ul.app-nav
+    //- li.app-search
+    //-   input.app-search__input(type='search', placeholder='Search')
+    //-   button.app-search__button
+    //-     i.fa.fa-search
+    notification-menu
+    user-button
+.app-sidebar__overlay(data-toggle='sidebar')    
+sidebar(user='userData')
+section(ng-hide='loaded')
+  - for (var i=0; i<10; i++)
+    br
+  .row.align-items-center
+    .col-4
+    .col-5
+      .loading-bro()
+        svg.center.float#load(x='0px', y='0px', viewbox='0 0 150 150')
+          circle#loading-inner(cx='75', cy='75', r='60')
+div(ng-cloak='', ng-show='loaded')
+  main.app-content
+    ui-view
